@@ -22,6 +22,7 @@ jobs:
           sed -i 's#cz.adaptive:tesseract4android:4.7.0#cz.adaptech.tesseract4android:tesseract4android:4.9.0#' RareWatch/app/build.gradle.kts
           sed -i 's#google(); mavenCentral() } }#google(); mavenCentral(); maven("https://jitpack.io") } }#' RareWatch/settings.gradle.kts
           sed -i 's#wm.removeView(pv)#wm.removeView(pv!!)#' RareWatch/app/src/main/java/com/rarewatch/app/WatchService.kt
+          sed -i 's#tess.utf8Text#tess.getUTF8Text()#' RareWatch/app/src/main/java/com/rarewatch/app/Detector.kt
       - name: Build
         working-directory: RareWatch
         run: gradle assembleDebug --no-daemon
